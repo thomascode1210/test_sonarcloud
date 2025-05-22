@@ -1,0 +1,3 @@
+"""
+Financial analysis tools package
+"""
