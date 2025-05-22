@@ -90,7 +90,6 @@ class Investment:
         print(f"Total contributions: ${total_contributions:,.2f}")
         print(f"Total interest earned: ${total_interest:,.2f}")
         print(f"Investment growth: {(final['balance'] / self.principal - 1) * 100:.2f}%")
-    
     def plot_growth(self):
         """Generate and display a plot of investment growth."""
         if self.results is None:
@@ -128,4 +127,5 @@ class Investment:
         plt.gca().yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'${x:,.0f}'))
         
         plt.tight_layout()
-        plt.show()
+        plt.show(block=False)  # Non-blocking display
+        plt.pause(0.1)  # Small pause to render the plot

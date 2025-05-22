@@ -92,7 +92,6 @@ class Budget:
             
             # Display expense chart
             self._plot_expense_breakdown()
-    
     def _plot_expense_breakdown(self):
         """Generate and display expense breakdown pie chart."""
         if not self.expenses:
@@ -118,11 +117,15 @@ class Budget:
             categories = top_categories
             amounts = top_amounts
         
-        # Create pie chart
-        plt.figure(figsize=(10, 6))
-        plt.pie(amounts, labels=categories, autopct='%1.1f%%', 
-                startangle=90, shadow=True)
-        plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle
-        plt.title('Expense Breakdown')
-        plt.tight_layout()
-        plt.show()
+        print("\nWould you like to see the expense breakdown chart? (y/n)")
+        choice = input("> ")
+        if choice.lower() == 'y':
+            # Create pie chart
+            plt.figure(figsize=(10, 6))
+            plt.pie(amounts, labels=categories, autopct='%1.1f%%', 
+                    startangle=90, shadow=True)
+            plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle
+            plt.title('Expense Breakdown')
+            plt.tight_layout()
+            plt.show(block=False)  # Non-blocking display
+            plt.pause(0.1)  # Small pause to render the plot
